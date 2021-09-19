@@ -1,3 +1,12 @@
+<?php 
+session_start();
+if (!isset($_SESSION["login"]))
+{
+    header("Location: login.php");
+    exit;
+}
+require_once 'functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,16 +17,9 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-    session_start();
-    if (empty($_SESSION['login']))
-    {
-        header("Location:login.php");
-    }
-    ?>
     <div class="text-center">
-    <p>Welcome aboard <?php echo $_SESSION['nama']; ?></p>
-    <a href="logout.php" class="btn btn-primary">Logout</button>
+    <p>Welcome aboard</p>
+    <a href="logout.php" class="btn btn-primary">Logout</>
     </div>
 </body>
 </html>

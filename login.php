@@ -12,6 +12,8 @@ if(isset($_POST["login"])){
         //Cek password
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])){
+            //Mengatur session
+            $_SESSION["login"] = true;
             header("Location: dashboard.php");
             exit;
         }

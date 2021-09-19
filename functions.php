@@ -36,7 +36,10 @@ function registrasi($data)
               alert('Password tidak sesuai');
               </script>";
         
-    } else {
+    } else 
+        {
+            $password = password_hash($password, PASSWORD_DEFAULT);
+        }
         if ($row_check > 0 )
         {
             echo '<script> alert("Email sudah terdaftar"); 
@@ -53,7 +56,6 @@ function registrasi($data)
         }
         
     }
-    $password = password_hash($password, PASSWORD_DEFAULT);
     return false;
 
         
@@ -63,5 +65,5 @@ function registrasi($data)
    //Menambah user baru ke databse
     
     return mysqli_affected_rows($conn);
-}
+
 ?>
